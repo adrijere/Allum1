@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 **
 ** Started on  Fri Feb 14 18:14:15 2014 Jérémy MATHON
-** Last update Sun Feb 16 21:38:57 2014 Jérémy MATHON
+** Last update Sun Feb 16 21:42:52 2014 Jérémy MATHON
 */
 
 #include	<unistd.h>
@@ -26,6 +26,8 @@ int		check_winner(int *lines, char *buffer)
     }
   if (cpt == 1)
     return (1);
+  else if (cpt == 0)
+    return (2);
   return (0);
 }
 
@@ -77,6 +79,11 @@ int		result(int *lines, char *buffer)
   if ((check_winner(lines, buffer) == 1))
     {
       my_putstr("\nPlayer won.\n");
+      return (8);
+    }
+  else if (check_winner(lines, buffer) == 2)
+    {
+      my_putstr("\n You lost because you remove the last match.\n");
       return (8);
     }
 }
