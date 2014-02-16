@@ -5,7 +5,7 @@
 ## Login   <mathon_j@epitech.net>
 ## 
 ## Started on  Mon Nov 25 15:37:45 2013 Jeremy Mathon
-## Last update Fri Feb 14 18:23:06 2014 Jérémy MATHON
+## Last update Sun Feb 16 21:39:36 2014 Jérémy MATHON
 ##
 
 SRCS	=		./src/my_allum.c \
@@ -33,7 +33,7 @@ OBJS	=		$(SRCS:.c=.o)
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
-	$(CC) $(CFLAGS) -g -o $(NAME) $(SRCS) -lcurses
+	$(CC) $(CFLAGS) -o $(NAME) $(SRCS) -lcurses
 
 clean:
 	rm -rvf $(OBJS)
