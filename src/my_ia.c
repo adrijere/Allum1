@@ -5,11 +5,21 @@
 ** Login   <mathon_j@mathonj>
 **
 ** Started on  Tue Feb 11 11:09:51 2014 Jérémy MATHON
-** Last update Sun Feb 16 21:06:32 2014 Jérémy MATHON
+** Last update Sun Feb 16 21:32:54 2014 Jérémy MATHON
 */
 
 #include        <unistd.h>
 #include        "my.h"
+
+void		check_ia(char **allum, int *lines, char *buffer)
+{
+  int		a;
+
+  a = 0;
+  while (lines[a] <= 0)
+    a++;
+  lines[a] = lines[a] - 1;
+}
 
 int		ia(char **allum, int *lines, char *buffer)
 {
@@ -27,8 +37,8 @@ int		ia(char **allum, int *lines, char *buffer)
       a++;
     }
   if (cpt == 0)
-    lines[0] = 0;
-  else
+    check_ia(allum, lines, buffer);
+ else
     lines[cpt] = lines[cpt] - (lines[cpt] - 1);
   show_map(allum, lines);
   if ((check_winner(lines, buffer) == 1))
