@@ -5,7 +5,7 @@
 ** Login   <mathon_j@epitech.net>
 **
 ** Started on  Wed Oct  9 08:49:26 2013 Jeremy Mathon
-** Last update Thu Feb  6 13:12:31 2014 Jérémy MATHON
+** Last update Thu Feb 20 14:27:12 2014 Jérémy MATHON
 */
 
 #include	<stdlib.h>
@@ -13,7 +13,7 @@
 
 char    **my_strcpie(char **dest, char **src)
 {
-  int   i;
+  int	i;
 
   i = 0;
   while (src[i] != '\0')

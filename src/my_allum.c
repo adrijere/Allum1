@@ -5,7 +5,7 @@
 ** Login   <mathon_j@mathonj>
 **
 ** Started on  Tue Feb  4 23:59:46 2014 Jérémy MATHON
-** Last update Fri Feb 14 18:30:23 2014 Jérémy MATHON
+** Last update Thu Feb 20 14:26:21 2014 Jérémy MATHON
 */
 
 #include	<termios.h>
@@ -96,29 +96,29 @@ void		my_game(struct termios *t)
   check_map(allum, buffer);
 }
 
-    int		main(int ac, char **av, char **envp)
-    {
-      int		fd;
-      char		**env;
-      char		*term;
-      struct	termios	*t;
-      struct	termios *e;
+int		main(int ac, char **av, char **envp)
+{
+  int		fd;
+  char		**env;
+  char		*term;
+  struct	termios	*t;
+  struct	termios *e;
 
-      t = my_malloc(sizeof(struct termios));
-      e = my_malloc(sizeof(struct termios));
-      tcgetattr(0, e);
-      if (envp[0] == NULL)
-	{
-	  my_putstr("Can not display.\n");
-	  return (1);
-	}
-      env = my_envdup(envp);
-      term = check_env(env);
-      if (tgetent(NULL, term) == -1)
-	{
-	  my_putstr("Error : tgetent failed.\n");
-	  return (1);
-	}
-      my_game(t);
-      tcsetattr(0, TCSANOW, e);
+  t = my_malloc(sizeof(struct termios));
+  e = my_malloc(sizeof(struct termios));
+  tcgetattr(0, e);
+  if (envp[0] == NULL)
+    {
+      my_putstr("Can not display.\n");
+      return (1);
     }
+  env = my_envdup(envp);
+  term = check_env(env);
+  if (tgetent(NULL, term) == -1)
+    {
+      my_putstr("Error : tgetent failed.\n");
+      return (1);
+    }
+  my_game(t);
+  tcsetattr(0, TCSANOW, e);
+}
